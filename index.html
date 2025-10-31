@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Khair Publications | Links</title>
   <meta name="description" content="Follow Khair Publications across social channels. Simple icon buttons for quick access with English and Urdu guidance." />
-  <link rel="icon" href="converted/logo@2x.webp">
+  <link rel="icon" href="assets/logo.svg">
 
   <!-- Optional: load Urdu font (remove if you self-host) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,7 +44,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: url("converted/darbar_1@2x.webp") center bottom / min(80vw, 720px) no-repeat !important;
+      background: url("converted/darbar_1.webp") center bottom / min(80vw, 720px) no-repeat !important;
       opacity: 0.10;
       pointer-events: none;
       z-index: 0;
@@ -135,11 +135,10 @@
     .website-tile {
       width: 100%;
       display: flex;
-      align-items: center center !important;
+      align-items: center;         /* vertical centering (valid) */
+      justify-content: center;     /* horizontal centering */
       gap: 18px;
       padding: 18px 20px;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
       border-radius: 22px;
       background: transparent !important;
       border: 0 !important;
@@ -159,7 +158,7 @@
     }
 
     .site-logo { width: 44px; height: 44px; flex-shrink: 0; }
-    .site-copy { text-align: left; }
+    .site-copy { text-align: center; }
     .site-name { display: block; font-weight: 700; font-size: 17px; }
     .site-url  { display: block; font-size: 13px; color: var(--muted); }
 
@@ -199,9 +198,9 @@
 </head>
 <body>
   <main class="page">
-    <img class="bismillah" src="converted/bismillah@2x.webp" alt="Bismillah" />
+    <img class="bismillah" src="assets/bismillah.svg" alt="Bismillah" />
 
-    <img class="brand-logo" src="converted/logo@2x.webp" alt="Khair Publications logo" />
+    <img class="brand-logo" src="assets/logo.svg" alt="Khair Publications logo" />
 
     <h1 class="brand-name">Khair Publications</h1>
 
@@ -211,27 +210,27 @@
     <nav class="links" aria-label="Social links">
       <!-- Accessible name comes from the SR-only text; no redundant aria-labels -->
       <a class="link-btn" href="https://www.facebook.com/people/Khair-Publications/61574118698840/" target="_blank" rel="noopener noreferrer">
-        <img src="converted/facebook@2x.webp" alt="" aria-hidden="true" />
+        <img src="assets/facebook.svg" alt="" aria-hidden="true" />
         <span class="sr-only">Facebook</span>
       </a>
       <a class="link-btn" href="https://www.youtube.com/@KhairPublications" target="_blank" rel="noopener noreferrer">
-        <img src="converted/youtube@2x.webp" alt="" aria-hidden="true" />
+        <img src="assets/youtube.svg" alt="" aria-hidden="true" />
         <span class="sr-only">YouTube</span>
       </a>
       <a class="link-btn" href="https://www.tiktok.com/@kp_smps" target="_blank" rel="noopener noreferrer">
-        <img src="converted/tiktok@2x.webp" alt="" aria-hidden="true" />
+        <img src="assets/tiktok.svg" alt="" aria-hidden="true" />
         <span class="sr-only">TikTok</span>
       </a>
       <a class="link-btn" href="https://www.instagram.com/kp_smps/" target="_blank" rel="noopener noreferrer">
-        <img src="converted/instagram@2x.webp" alt="" aria-hidden="true" />
+        <img src="assets/instagram.svg" alt="" aria-hidden="true" />
         <span class="sr-only">Instagram</span>
       </a>
       <a class="link-btn" href="https://x.com/KP_smps" target="_blank" rel="noopener noreferrer">
-        <img src="converted/icons8-x-logo@2x.webp" alt="" aria-hidden="true" />
+        <img src="assets/icons8-x-logo.svg" alt="" aria-hidden="true" />
         <span class="sr-only">X (Twitter)</span>
       </a>
       <a class="link-btn" href="https://whatsapp.com/channel/0029Vb6TQ3G1dAw3bJd4Oa1Z" target="_blank" rel="noopener noreferrer">
-        <img src="converted/whatsapp@2x.webp" alt="" aria-hidden="true" />
+        <img src="assets/whatsapp.svg" alt="" aria-hidden="true" />
         <span class="sr-only">WhatsApp</span>
       </a>
     </nav>
@@ -240,7 +239,7 @@
 
     <!-- Link has visible text => no aria-label; don't double-announce -->
     <a class="website-tile" href="https://khairpublications.com/" target="_blank" rel="noopener noreferrer">
-      <img class="site-logo" src="converted/logo@2x.webp" alt="" aria-hidden="true" />
+      <img class="site-logo" src="assets/logo.svg" alt="" aria-hidden="true" />
       <div class="site-copy">
         <span class="site-name">Khair Publications</span>
         <span class="site-url">khairpublications.com</span>
