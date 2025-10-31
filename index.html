@@ -8,15 +8,15 @@
   <link rel="icon" href="assets/logo.svg">
   <style>
     :root {
-      --bg: #f3f6fb;
+      --bg: #ffffff;           /* was #f3f6fb */
       --fg: #111827;
-      --muted: #6b7280;
+      --muted: #64748b;        /* slightly cooler gray */
       --card: #ffffff;
       --border: #e5e7eb;
-      --button-bg: #f8fafc;
-      --button-border: #e2e8f0;
-      --button-hover: #e0f2f1;
-      --accent: #0ea36e;
+      --button-bg: #ffffff;    /* buttons on white, not bluish */
+      --button-border: #e5e7eb;
+      --button-hover: #ecfdf5; /* subtle green hover wash */
+      --accent: #0ea36e;       /* keep brand green */
     }
     * { box-sizing: border-box; }
     body {
@@ -50,9 +50,10 @@
       width: 200px;
       max-width: 100%;
     }
-    .brand-logo {
-      width: 170px;
-      max-width: 65vw;
+    /* --- Make both logos smaller --- */
+    .brand-logo {              /* top header logo */
+      width: 150px;            /* was 170px */
+      max-width: 60vw;         /* keep responsive */
     }
     .brand-name {
       font-size: 26px;
@@ -97,10 +98,11 @@
       box-shadow: none;           /* kill the “tile” look */
     }
 
-    .link-btn:hover {
+    .link-btn:hover,
+    .website-tile:hover {
       border-color: var(--accent);
       transform: translateY(-1px);
-      box-shadow: none;
+      box-shadow: none; /* keep it flat and clean */
     }
 
     .link-btn:focus-visible {
@@ -153,8 +155,8 @@
       outline-offset: 2px;
     }
     .site-logo {
-      width: 54px;
-      height: 54px;
+      width: 44px;
+      height: 44px;
       flex-shrink: 0;
     }
     .site-copy {
@@ -192,17 +194,17 @@
       white-space: nowrap;
       border: 0;
     }
+    /* --- Keep the tile logo small on wider screens (don’t upscale it) --- */
     @media (min-width: 480px) {
-      .page {
-        max-width: 380px;
-      }
-      .brand-logo {
-        width: 190px;
-      }
-      .link-btn img,
-      .site-logo {
+      .page { max-width: 380px; }
+      .brand-logo { width: 165px; }     /* was 190px */
+      .link-btn img {                    /* keep social icons bigger if you want */
         width: 60px;
         height: 60px;
+      }
+      .site-logo {                        /* explicitly keep the site logo modest */
+        width: 48px;
+        height: 48px;
       }
     }
     @media (min-width: 640px) {
