@@ -6,294 +6,195 @@
   <title>Khair Publications | Links</title>
   <meta name="description" content="Follow Khair Publications across social channels. Simple icon buttons for quick access with English and Urdu guidance." />
   <link rel="icon" href="assets/logo.svg">
+
+  <!-- Optional: load Urdu font (remove if you self-host) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --bg: #ffffff;
-      --fg: #111827;          /* near-black text */
-      --muted: #475569;       /* slate-ish secondary text */
-      --accent: #0ea36e;      /* deep green accent */
-      --border: #e5e7eb;      /* light border */
-      --button-bg: #ffffff;   /* white cards/buttons */
-      --alpha-ui: 0.8;        /* 20% transparent surfaces */
+      --bg: #f5e4cc;          /* paper */
+      --text: #0f172a;        /* near-black body text (contrast-safe) */
+      --muted: #0f172a;       /* secondary text */
+      --brand: #00783b;       /* brand green */
+      --accent: #f9c32c;      /* accent yellow */
+      --surface: #01793b;     /* cards/buttons base */
+      --border: #01793b;      /* light border */
+      --alpha-ui: 0.8;        /* 80% opacity for chrome */
     }
+
     * { box-sizing: border-box; }
+    html, body { min-height: 100%; background: var(--bg); }
     body {
       margin: 0;
-      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100dvh;
       padding: 24px 16px;
       line-height: 1.5;
+      position: relative;
     }
+
+    /* Watermark motif */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("assets/darbar_1.png") center center / min(80vw, 720px) no-repeat !important;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .page {
+      position: relative;
+      z-index: 1; /* over watermark */
       width: 100%;
-      max-width: 360px;
+      max-width: 420px;
       margin: 0;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 32px 24px 36px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      background: transparent !important;
+      border: 0 !important;
+      /* border-radius: 24px; */
+      padding: 16px 0 24px !important;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08) !important;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       gap: 20px;
     }
-    .bismillah {
-      width: 200px;
-      max-width: 100%;
-    }
-    /* --- Make both logos smaller --- */
-    .brand-logo {              /* top header logo */
-      width: 150px;            /* was 170px */
-      max-width: 60vw;         /* keep responsive */
-    }
-    .brand-name {
-      font-size: 26px;
-      margin: 0;
-      font-weight: 700;
-    }
-    .instruction {
-      margin: 0;
-      font-size: 16px;
-      color: var(--muted);
-    }
-    .instruction + .instruction {
-      margin-top: -6px;
-    }
+
+    .bismillah { width: 200px; max-width: 100%; }
+    .brand-logo { width: 150px; max-width: 60vw; }
+    .brand-name { font-size: 26px; margin: 0; font-weight: 700; }
+
+    .instruction { margin: 0; font-size: 16px; color: var(--muted); }
+    .instruction + .instruction { margin-top: -6px; }
+
     .urdu {
       direction: rtl;
-      font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Segoe UI", Arial, sans-serif;
+      font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Scheherazade New", "Segoe UI", Arial, sans-serif;
     }
-    /* 3-up block grid */
+
+    /* Social grid */
     .links {
       width: 100%;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 12px !important;
       margin-top: 10px;
+      margin-left: 10px !important;
+      margin-right: 10px !important;
     }
-    
-    /* Square, minimal blocks (not big tiles) */
+
+    /* Square buttons */
     .link-btn {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
-      aspect-ratio: 1 / 1;        /* square blocks */
-      min-height: unset;
+      aspect-ratio: 1 / 1;
       padding: 10px;
       border-radius: 14px;
-      background: var(--button-bg);
-      border: 1.5px solid var(--button-border);
+      background: transparent !important;
+      border: 0 !important;
       transition: border-color 150ms ease, transform 150ms ease;
-      box-shadow: none;           /* kill the “tile” look */
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08) !important;
+      transform: none !important;
+      text-decoration: none;
+      color: inherit;
     }
-
-    .link-btn:hover,
-    .website-tile:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: none; /* keep it flat and clean */
+    .link-btn:hover { 
+      /* border-color: var(--accent);  */
+      transform: translateY(-1px) !important; 
     }
-
-    .link-btn:focus-visible {
-      outline: 3px solid rgba(14, 163, 110, 0.45);
-      outline-offset: 2px;
+    .link-btn:focus-visible { outline: 3px solid rgba(14, 163, 110, 0.45) !important; outline-offset: 2px; }
+    .link-btn img { 
+      display: block; 
+      width: 75px !important; height: 75px !important; 
     }
-
-    /* Icon sizing for blocks */
-    .link-btn img {
-      display: block;
-      width: 36px;
-      height: 36px;
-    }
-
-    /* Optional: bump icons a bit on wider phones */
     @media (min-width: 480px) {
-      .link-btn img {
-        width: 42px;
-        height: 42px;
-      }
+      .link-btn img { width: 90px !important; height: 90px !important; }
     }
+
     .separator {
       width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin: 12px 0 16px;
+      height: 10px;
+      background: rgba(17, 24, 39, 0.12);
+      opacity: 100 !important;
+      margin: 14px 0 16px;
+      border: 0;
     }
+
+    /* Website tile */
     .website-tile {
       width: 100%;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
+      align-items: center center !important;
       gap: 18px;
       padding: 18px 20px;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
       border-radius: 22px;
-      background: var(--card);
-      border: 1.5px solid var(--button-border);
+      background: transparent !important;
+      border: 0 !important;
       text-decoration: none;
-      color: inherit;
+      color: var(--text);
       transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05) !important;
     }
-    .website-tile:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(14, 163, 110, 0.12);
+    .website-tile:hover { 
+      /* border-color: var(--accent);  */
+      transform: translateY(-2px); 
+      box-shadow: 0 10px 22px rgba(14, 163, 110, 0.12); 
     }
-    .website-tile:focus-visible {
-      outline: 3px solid rgba(14, 163, 110, 0.45);
-      outline-offset: 2px;
+    .website-tile:focus-visible { 
+      outline: 3px solid rgba(14, 163, 110, 0.45) !important; 
+      outline-offset: 3px; 
     }
-    .site-logo {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-    }
-    .site-copy {
-      text-align: left;
-    }
-    .site-name {
-      display: block;
-      font-weight: 700;
-      font-size: 17px;
-    }
-    .site-url {
-      display: block;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .footer-note {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .footer-note + .footer-note {
-      margin-top: -2px;
-    }
-    .footer-note.urdu {
-      margin-top: -6px;
-    }
+
+    .site-logo { width: 44px; height: 44px; flex-shrink: 0; }
+    .site-copy { text-align: left; }
+    .site-name { display: block; font-weight: 700; font-size: 17px; }
+    .site-url  { display: block; font-size: 13px; color: var(--muted); }
+
+    .footer-note { margin: 0; font-size: 13px; color: var(--muted); }
+    .footer-note + .footer-note { margin-top: -2px; }
+    .footer-note.urdu { margin-top: -6px; }
+
+    /* Screen-reader utility */
     .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
     }
-    /* --- Keep the tile logo small on wider screens (don’t upscale it) --- */
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+      .link-btn:hover, .website-tile:hover { transform: none !important; }
+    }
+
+    /* High-contrast/forced colors support */
+    @media (forced-colors: active) {
+      .link-btn, .website-tile { border: 1px solid CanvasText; }
+      .link-btn:focus-visible, .website-tile:focus-visible { outline: 2px solid Highlight; }
+    }
+
+    /* Responsive tweaks */
     @media (min-width: 480px) {
       .page { max-width: 380px; }
-      .brand-logo { width: 290px; }     /* was 190px */
-      .link-btn img {                    /* keep social icons bigger if you want */
-        width: 60px;
-        height: 60px;
-      }
-      .site-logo {                        /* explicitly keep the site logo modest */
-        width: 48px;
-        height: 48px;
-      }
+      .brand-logo { width: 135px; }
+      .link-btn img { width: 42px; height: 42px; }
+      .site-logo { width: 48px; height: 48px; }
     }
     @media (min-width: 640px) {
-      .page {
-        padding: 40px 36px 44px;
-        max-width: 420px;
-      }
-      .link-btn {
-        min-height: 86px;
-      }
+      .page { padding: 40px 36px 44px; max-width: 420px; }
     }
-    /* === Khair theme (white + deep green) === */
-    :root {
-      --bg: #ffffff;
-      --fg: #111827;          /* near-black text */
-      --muted: #475569;       /* slate-ish secondary text */
-      --accent: #0ea36e;      /* deep green accent */
-      --border: #e5e7eb;      /* light border */
-      --button-bg: #ffffff;   /* white cards/buttons */
-      --alpha-ui: 0.8;        /* 20% transparent surfaces */
-    }
-
-    /* === Background: darbar motif behind everything === */
-    html, body { min-height: 100%; background: var(--bg); }
-    body {
-      position: relative;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("assets/darbar.svg") center top / min(80vw, 720px) no-repeat;
-      opacity: 0.08;                 /* subtle watermark */
-      pointer-events: none;
-      z-index: 0;
-    }
-    /* ensure content paints above bg layer */
-    .page { position: relative; z-index: 1; }
-
-    /* === 20% transparency on UI chrome (NOT text, NOT logos) === */
-    /* cards / blocks */
-    .link-btn,
-    .website-tile,
-    .card,
-    .panel {
-      background: rgba(255, 255, 255, var(--alpha-ui));
-      border: 1.5px solid rgba(229, 231, 235, var(--alpha-ui));
-      box-shadow: none;
-    }
-
-    /* separator line after the blocks */
-    .separator {
-      height: 1px;
-      background: rgba(17, 24, 39, 0.12); /* readable on white */
-      opacity: var(--alpha-ui);            /* 80% opaque */
-      margin: 14px 0;
-      border: 0;
-    }
-
-    /* hover/focus states still use brand accent */
-    .link-btn:hover,
-    .website-tile:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-    .link-btn:focus-visible,
-    .website-tile:focus-visible {
-      outline: 3px solid rgba(14, 163, 110, 0.45);
-      outline-offset: 2px;
-    }
-
-    /* === Keep TEXT and LOGOS fully solid === */
-    h1, h2, h3, h4, h5, h6,
-    p, a, strong, em, small, span, li { 
-      color: var(--fg);
-      opacity: 1;                 /* override any inherited fades */
-    }
-
-    /* logos (header, tile, social icons treated as logos) */
-    .brand-logo,
-    .site-logo,
-    .link-btn img {
-      opacity: 1 !important;      /* never dim */
-    }
-
-    /* optional: bring accent into links */
-    a { color: var(--accent); }
-    a:hover { text-decoration: underline; }
-    .site-logo { width: 44px; height: 44px; }
-    @media (min-width: 480px) { .site-logo { width: 48px; height: 48px; } }
-
   </style>
 </head>
 <body>
@@ -308,27 +209,28 @@
     <p class="instruction urdu">&#x0628;&#x0631;&#x0627;&#x06C1;&#x0650; &#x0645;&#x06C1;&#x0631;&#x0628;&#x0627;&#x0646;&#x06CC; &#x0641;&#x0627;&#x0644;&#x0648; &#x06A9;&#x0631;&#x0646;&#x06D2; &#x06A9;&#x06D2; &#x0644;&#x0626;&#x06D2; &#x0644;&#x0648;&#x06AF;&#x0648; &#x067E;&#x0631; &#x06A9;&#x0644;&#x06A9; &#x06A9;&#x0631;&#x06CC;&#x06BA;&#x06D4;</p>
 
     <nav class="links" aria-label="Social links">
-      <a class="link-btn" href="https://www.facebook.com/people/Khair-Publications/61574118698840/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <!-- Accessible name comes from the SR-only text; no redundant aria-labels -->
+      <a class="link-btn" href="https://www.facebook.com/people/Khair-Publications/61574118698840/" target="_blank" rel="noopener noreferrer">
         <img src="assets/facebook.svg" alt="" aria-hidden="true" />
         <span class="sr-only">Facebook</span>
       </a>
-      <a class="link-btn" href="https://www.youtube.com/@KhairPublications" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <a class="link-btn" href="https://www.youtube.com/@KhairPublications" target="_blank" rel="noopener noreferrer">
         <img src="assets/youtube.svg" alt="" aria-hidden="true" />
         <span class="sr-only">YouTube</span>
       </a>
-      <a class="link-btn" href="https://www.tiktok.com/@kp_smps" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <a class="link-btn" href="https://www.tiktok.com/@kp_smps" target="_blank" rel="noopener noreferrer">
         <img src="assets/tiktok.svg" alt="" aria-hidden="true" />
         <span class="sr-only">TikTok</span>
       </a>
-      <a class="link-btn" href="https://www.instagram.com/kp_smps/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <a class="link-btn" href="https://www.instagram.com/kp_smps/" target="_blank" rel="noopener noreferrer">
         <img src="assets/instagram.svg" alt="" aria-hidden="true" />
         <span class="sr-only">Instagram</span>
       </a>
-      <a class="link-btn" href="https://x.com/KP_smps" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+      <a class="link-btn" href="https://x.com/KP_smps" target="_blank" rel="noopener noreferrer">
         <img src="assets/icons8-x-logo.svg" alt="" aria-hidden="true" />
         <span class="sr-only">X (Twitter)</span>
       </a>
-      <a class="link-btn" href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <a class="link-btn" href="https://whatsapp.com/channel/0029Vb6TQ3G1dAw3bJd4Oa1Z" target="_blank" rel="noopener noreferrer">
         <img src="assets/whatsapp.svg" alt="" aria-hidden="true" />
         <span class="sr-only">WhatsApp</span>
       </a>
@@ -336,13 +238,13 @@
 
     <div class="separator" aria-hidden="true"></div>
 
-    <a class="website-tile" href="https://khairpublications.com/" target="_blank" rel="noopener noreferrer" aria-label="Khair Publications website">
+    <!-- Link has visible text => no aria-label; don't double-announce -->
+    <a class="website-tile" href="https://khairpublications.com/" target="_blank" rel="noopener noreferrer">
       <img class="site-logo" src="assets/logo.svg" alt="" aria-hidden="true" />
       <div class="site-copy">
         <span class="site-name">Khair Publications</span>
         <span class="site-url">khairpublications.com</span>
       </div>
-      <span class="sr-only">Visit Khair Publications website</span>
     </a>
 
     <p class="footer-note">Need help? Ask a team member.</p>
