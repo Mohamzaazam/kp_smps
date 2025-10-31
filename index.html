@@ -8,15 +8,13 @@
   <link rel="icon" href="assets/logo.svg">
   <style>
     :root {
-      --bg: #ffffff;           /* was #f3f6fb */
-      --fg: #111827;
-      --muted: #64748b;        /* slightly cooler gray */
-      --card: #ffffff;
-      --border: #e5e7eb;
-      --button-bg: #ffffff;    /* buttons on white, not bluish */
-      --button-border: #e5e7eb;
-      --button-hover: #ecfdf5; /* subtle green hover wash */
-      --accent: #0ea36e;       /* keep brand green */
+      --bg: #ffffff;
+      --fg: #111827;          /* near-black text */
+      --muted: #475569;       /* slate-ish secondary text */
+      --accent: #0ea36e;      /* deep green accent */
+      --border: #e5e7eb;      /* light border */
+      --button-bg: #ffffff;   /* white cards/buttons */
+      --alpha-ui: 0.8;        /* 20% transparent surfaces */
     }
     * { box-sizing: border-box; }
     body {
@@ -197,7 +195,7 @@
     /* --- Keep the tile logo small on wider screens (don’t upscale it) --- */
     @media (min-width: 480px) {
       .page { max-width: 380px; }
-      .brand-logo { width: 165px; }     /* was 190px */
+      .brand-logo { width: 290px; }     /* was 190px */
       .link-btn img {                    /* keep social icons bigger if you want */
         width: 60px;
         height: 60px;
@@ -216,6 +214,86 @@
         min-height: 86px;
       }
     }
+    /* === Khair theme (white + deep green) === */
+    :root {
+      --bg: #ffffff;
+      --fg: #111827;          /* near-black text */
+      --muted: #475569;       /* slate-ish secondary text */
+      --accent: #0ea36e;      /* deep green accent */
+      --border: #e5e7eb;      /* light border */
+      --button-bg: #ffffff;   /* white cards/buttons */
+      --alpha-ui: 0.8;        /* 20% transparent surfaces */
+    }
+
+    /* === Background: darbar motif behind everything === */
+    html, body { min-height: 100%; background: var(--bg); }
+    body {
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("assets/darbar.svg") center top / min(80vw, 720px) no-repeat;
+      opacity: 0.08;                 /* subtle watermark */
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* ensure content paints above bg layer */
+    .page { position: relative; z-index: 1; }
+
+    /* === 20% transparency on UI chrome (NOT text, NOT logos) === */
+    /* cards / blocks */
+    .link-btn,
+    .website-tile,
+    .card,
+    .panel {
+      background: rgba(255, 255, 255, var(--alpha-ui));
+      border: 1.5px solid rgba(229, 231, 235, var(--alpha-ui));
+      box-shadow: none;
+    }
+
+    /* separator line after the blocks */
+    .separator {
+      height: 1px;
+      background: rgba(17, 24, 39, 0.12); /* readable on white */
+      opacity: var(--alpha-ui);            /* 80% opaque */
+      margin: 14px 0;
+      border: 0;
+    }
+
+    /* hover/focus states still use brand accent */
+    .link-btn:hover,
+    .website-tile:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .link-btn:focus-visible,
+    .website-tile:focus-visible {
+      outline: 3px solid rgba(14, 163, 110, 0.45);
+      outline-offset: 2px;
+    }
+
+    /* === Keep TEXT and LOGOS fully solid === */
+    h1, h2, h3, h4, h5, h6,
+    p, a, strong, em, small, span, li { 
+      color: var(--fg);
+      opacity: 1;                 /* override any inherited fades */
+    }
+
+    /* logos (header, tile, social icons treated as logos) */
+    .brand-logo,
+    .site-logo,
+    .link-btn img {
+      opacity: 1 !important;      /* never dim */
+    }
+
+    /* optional: bring accent into links */
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+    .site-logo { width: 44px; height: 44px; }
+    @media (min-width: 480px) { .site-logo { width: 48px; height: 48px; } }
+
   </style>
 </head>
 <body>
