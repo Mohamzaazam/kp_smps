@@ -71,40 +71,56 @@
       direction: rtl;
       font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Segoe UI", Arial, sans-serif;
     }
+    /* 3-up block grid */
     .links {
       width: 100%;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 10px;
     }
+    
+    /* Square, minimal blocks (not big tiles) */
     .link-btn {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
-      min-height: 76px;
-      padding: 0;
-      border-radius: 22px;
-      background: var(--card);
+      aspect-ratio: 1 / 1;        /* square blocks */
+      min-height: unset;
+      padding: 10px;
+      border-radius: 14px;
+      background: var(--button-bg);
       border: 1.5px solid var(--button-border);
-      transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+      transition: border-color 150ms ease, transform 150ms ease;
+      box-shadow: none;           /* kill the “tile” look */
     }
+
     .link-btn:hover {
       border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(14, 163, 110, 0.12);
+      transform: translateY(-1px);
+      box-shadow: none;
     }
+
     .link-btn:focus-visible {
       outline: 3px solid rgba(14, 163, 110, 0.45);
       outline-offset: 2px;
     }
+
+    /* Icon sizing for blocks */
     .link-btn img {
       display: block;
-      width: 54px;
-      height: 54px;
+      width: 36px;
+      height: 36px;
+    }
+
+    /* Optional: bump icons a bit on wider phones */
+    @media (min-width: 480px) {
+      .link-btn img {
+        width: 42px;
+        height: 42px;
+      }
     }
     .separator {
       width: 100%;
