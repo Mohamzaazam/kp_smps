@@ -3,143 +3,238 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zeo | Links</title>
-  <meta name="description" content="Quick access to our official social links. English and Urdu side by side for clarity." />
+  <title>Khair Publications | Links</title>
+  <meta name="description" content="Quick access to official Khair Publications links. English and Urdu side by side. Mobile‑first, icon‑only blocks." />
   <link rel="icon" href="assets/logo.svg">
   <style>
-    :root {
-      --bg: #f7f9fc;        /* soft light */
-      --fg: #111827;        /* gray-900 */
-      --muted: #6b7280;     /* gray-500 */
-      --accent: #10b981;    /* teal/green */
-      --card: #ffffff;      /* white card */
-      --border: #e5e7eb;    /* light border */
-      --linkbg: #ffffff;    /* button bg */
+    :root{
+      --bg:#f7f9fc;        /* soft light */
+      --fg:#111827;        /* gray-900 */
+      --muted:#6b7280;     /* gray-500 */
+      --accent:#10b981;    /* green/teal */
+      --card:#ffffff;      /* white */
+      --border:#e5e7eb;    /* light border */
+      --shadow:0 8px 28px rgba(17,24,39,.06);
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg);
-      color: var(--fg);
-      display: flex;
-      min-height: 100vh;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      background:var(--bg);
+      color:var(--fg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
     }
-    .wrap { width: 100%; max-width: 760px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 8px 28px rgba(17, 24, 39, 0.06);
+    .wrap{width:100%;max-width:640px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:var(--shadow);
     }
-    .header { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
-    .logo-slot { position: relative; width: 68px; height: 68px; flex: 0 0 68px; }
-    .logo-img { width: 68px; height: 68px; border-radius: 14px; object-fit: contain; background: #fff; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(17,24,39,0.06); }
-    .logo-fallback { width: 68px; height: 68px; border-radius: 14px; background: radial-gradient(circle at 30% 30%, var(--accent), #0ea36e 50%, #0c7e56); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 26px; letter-spacing: 1px; position: absolute; inset: 0; }
-    h1 { font-size: 28px; line-height: 1.2; margin: 0; }
-    p.sub { color: var(--muted); margin: 6px 0 0 0; font-size: 15px; }
-    .links { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 20px; }
-    a.link { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--fg); border: 1px solid var(--border); background: var(--linkbg); padding: 16px 18px; border-radius: 16px; transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease; }
-    a.link:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 6px 16px rgba(16,185,129,0.12); }
-    .left { display: flex; align-items: center; gap: 14px; flex: 1; }
-    .icon { width: 26px; height: 26px; display: inline-block; color: var(--fg); }
-    .labels { display: grid; gap: 4px; }
-    .name { font-weight: 700; font-size: 17px; line-height: 1.2; }
-    .name-ur { font-size: 15px; color: var(--muted); direction: rtl; text-align: start; font-family: "Noto Naskh Arabic", "Noto Nastaliq Urdu", "Segoe UI", Arial, sans-serif; }
-    .footer { margin-top: 18px; color: var(--muted); font-size: 12px; text-align: center; }
-    .badge { display: inline-block; padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--muted); background: #fff; }
-    @media (min-width: 480px) {
-      .labels { grid-template-columns: auto auto; column-gap: 12px; align-items: baseline; }
-      .name-ur { text-align: right; }
+
+    /* 0) Bismillah at top */
+    .bismillah{
+      display:block;
+      margin:0 auto 8px auto;
+      width:min(200px, 60vw);
+      height:auto;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.04));
+    }
+
+    /* 1) Centered enlarged logo */
+    .brand-logo{
+      display:block;
+      margin:10px auto 8px auto;
+      width:min(140px, 42vw);
+      height:auto;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid var(--border);
+      padding:10px;
+      box-shadow:0 4px 14px rgba(16,185,129,.12);
+    }
+
+    /* 2) Organization name */
+    .org{
+      text-align:center;
+      margin:8px 0 0 0;
+      font-size: clamp(22px, 5vw, 28px);
+      line-height:1.2;
+    }
+
+    /* 3) Instruction EN + UR */
+    .cta{
+      text-align:center;
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .cta-ur{
+      text-align:center;
+      margin:4px 0 12px 0;
+      color:var(--muted);
+      font-size:15px;
+      direction: rtl;
+      font-family: "Noto Naskh Arabic", "Noto Nastaliq Urdu", "Segoe UI", Arial, sans-serif;
+    }
+
+    /* 4) Icon-only blocks (mobile-first) */
+    .block-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+      gap:14px;
+      margin-top:12px;
+    }
+    a.block{
+      display:grid;
+      place-items:center;
+      aspect-ratio:1/1;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      text-decoration:none;
+      box-shadow:0 6px 16px rgba(16,185,129,.08);
+      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      /* Minimum tappable size >= 48px */
+      min-width:72px; min-height:72px;  /* comfortably above 48x48 */
+    }
+    a.block:hover{ transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 10px 22px rgba(16,185,129,.16); }
+    a.block:active{ transform: translateY(0); }
+
+    .block-icon{
+      width:36px; height:36px; object-fit:contain;
+    }
+    .icon-fallback{
+      display:none;
+      width:36px;height:36px;
+      border-radius:10px;
+      align-items:center;justify-content:center;
+      font-weight:800;font-size:14px;color:#fff;
+      background: radial-gradient(circle at 30% 30%, var(--accent), #0ea36e 50%, #0c7e56);
+    }
+
+    /* 5) Separator */
+    .separator{
+      margin:18px 0;
+      height:1px;
+      background:linear-gradient(90deg, rgba(16,185,129,.15), rgba(229,231,235,1) 20%, rgba(229,231,235,1) 80%, rgba(16,185,129,.15));
+      border:0;
+    }
+
+    /* 6) Website tile (logo + text) */
+    .site-tile{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+      color:var(--fg);
+      border:1px solid var(--border);
+      background:#fff;
+      padding:14px 16px;
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .site-tile:hover{ transform:translateY(-2px); border-color:var(--accent); box-shadow:0 10px 22px rgba(16,185,129,.12); }
+    .site-logo{ width:32px; height:32px; object-fit:contain; border-radius:8px; background:#fff; border:1px solid var(--border); padding:4px; }
+    .site-name{ font-weight:700; font-size:16px; }
+
+    /* Footer help */
+    .footer{
+      margin-top:14px;
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .footer .ur{ direction: rtl; display:block; font-size:13px; margin-top:4px; font-family: "Noto Naskh Arabic", "Noto Nastaliq Urdu", "Segoe UI", Arial, sans-serif; }
+
+    /* Accessibility helper for screen readers */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
-      <div class="header">
-        <div class="logo-slot">
-          <img class="logo-img" src="assets/logo.svg" alt="Organization Logo" onload="this.nextElementSibling.style.display='none'" />
-          <div class="logo-fallback" aria-hidden="true">Z</div>
-        </div>
-        <div>
-          <h1>Zeo</h1>
-          <p class="sub">Official links - easy to tap.</p>
-        </div>
-      </div>
 
-      <div class="links">
-        <!-- 1. Facebook -->
-        <a class="link" href="https://www.facebook.com/people/Khair-Publications/61574118698840/" target="_blank" rel="noopener noreferrer">
-          <span class="left">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V8.8c0-.9.3-1.5 1.6-1.5H17V4.6c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H8.5v3h2.6v8h2.4z" fill="currentColor"/></svg>
-            <span class="labels">
-              <span class="name">Facebook</span>
-              <span class="name-ur">&#x0641;&#x06CC;&#x0633; &#x0628;&#x06A9;</span>
-            </span>
-          </span>
+      <!-- 0) Bismillah at top -->
+      <img class="bismillah" src="assets/bismillah.svg" alt="Bismillah" />
+
+      <!-- 1) Centered enlarged logo -->
+      <img class="brand-logo" src="assets/logo.svg" alt="Khair Publications logo" />
+
+      <!-- 2) Organization name -->
+      <h1 class="org">Khair Publications</h1>
+
+      <!-- 3) Instruction EN + UR -->
+      <p class="cta">Please click the logo to follow</p>
+      <p class="cta-ur">براہِ کرم فالو کرنے کے لیے لوگو پر کلک کریں</p>
+
+      <!-- 4) Blocks (icon‑only) -->
+      <div class="block-grid">
+        <!-- YouTube -->
+        <a class="block" href="https://www.youtube.com/@KhairPublications" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <img class="block-icon" src="assets/youtube.svg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+          <span class="icon-fallback" aria-hidden="true">YT</span>
+          <span class="sr-only">YouTube</span>
         </a>
 
-        <!-- 2. YouTube -->
-        <a class="link" href="https://www.youtube.com/@KhairPublications" target="_blank" rel="noopener noreferrer">
-          <span class="left">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 7.5s-.2-1.6-.8-2.2c-.8-.8-1.6-.8-2-0.9C17.7 4 12 4 12 4s-5.7 0-8.7.4c-.4.1-1.2.1-2 .9C.7 5.9.5 7.5.5 7.5S0 9.3 0 11v2c0 1.7.5 3.5.5 3.5s.2 1.6.8 2.2c.8.8 1.9.8 2.4.9 1.8.2 7.3.4 8.3.4s5.7 0 8.7-.4c.4-.1 1.2-.1 2-.9.6-.6.8-2.2.8-2.2S24 14.7 24 13v-2c0-1.7-.5-3.5-.5-3.5zM9.7 14.9v-5.8l5.9 2.9-5.9 2.9z" fill="currentColor"/></svg>
-          <span class="labels">
-            <span class="name">YouTube</span>
-            <span class="name-ur">&#x06CC;&#x0648;&#x0679;&#x06CC;&#x0648;&#x0628;</span>
-          </span>
+        <!-- TikTok (TODO: confirm handle/url if different) -->
+        <a class="block" href="https://www.tiktok.com/@KhairPublications" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <img class="block-icon" src="assets/tiktok.svg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+          <span class="icon-fallback" aria-hidden="true">TT</span>
+          <span class="sr-only">TikTok</span>
         </a>
 
-        <!-- 3. Instagram -->
-        <a class="link" href="https://www.instagram.com/kp_smps/" target="_blank" rel="noopener noreferrer">
-          <span class="left">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2.2a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zM18.5 6a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="currentColor"/></svg>
-            <span class="labels">
-              <span class="name">Instagram</span>
-              <span class="name-ur">&#x0627;&#x0646;&#x0633;&#x0679;&#x0627;&#x06AF;&#x0631;&#x0627;&#x0645;</span>
-            </span>
-          </span>
+        <!-- Facebook -->
+        <a class="block" href="https://www.facebook.com/people/Khair-Publications/61574118698840/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <img class="block-icon" src="assets/facebook.svg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+          <span class="icon-fallback" aria-hidden="true">Fb</span>
+          <span class="sr-only">Facebook</span>
         </a>
 
-        <!-- 4. X (Twitter) -->
-        <a class="link" href="https://x.com/KP_smps" target="_blank" rel="noopener noreferrer">
-          <span class="left">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 3H16l-4 5.2L8.2 3H3.7l6.1 8.7L3 21h4.3l4.1-5.5L15.8 21h4.5l-6.9-9.9L20.3 3z" fill="currentColor"/></svg>
-            <span class="labels">
-              <span class="name">X (Twitter)</span>
-              <span class="name-ur">&#x0627;&#x06CC;&#x06A9;&#x0633; (&#x0679;&#x0648;&#x0626;&#x0679;&#x0631;)</span>
-            </span>
-          </span>
+        <!-- Instagram -->
+        <a class="block" href="https://www.instagram.com/kp_smps/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img class="block-icon" src="assets/instagram.svg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+          <span class="icon-fallback" aria-hidden="true">Ig</span>
+          <span class="sr-only">Instagram</span>
         </a>
 
-        <!-- 5. WhatsApp -->
-        <a class="link" href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-          <span class="left">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.5 11.5 0 0 0 1.8 18.6L1 23l4.5-1.2A11.5 11.5 0 1 0 20.5 3.5zm-8.9 2.7a8.1 8.1 0 0 1 8.1 8.1c0 1.4-.4 2.7-1 3.9l.1.1-2.5-.7a6.9 6.9 0 0 1-3.6-2.1 12 12 0 0 1-2.4-3.8c-.5-1.2-.1-2 .3-2.4.3-.3.7-.7.6-1.2 0-.3-.2-.6-.3-.8l-1-1.6c-.1-.2-.3-.4-.5-.4-.3 0-.7.1-1 .3a3 3 0 0 0-1.4 2.6c0 1.8 1.3 3.5 1.5 3.8.3.4 2.6 4.2 6.3 5.7 3.1 1.2 3.7 1 4.3.9.9-.1 2.1-.9 2.4-1.8.3-.8.3-1.5.2-1.7-.1-.2-.3-.2-.6-.3l-2.1-.9c-.2-.1-.5-.2-.8 0l-.9.7c-.2.2-.5.4-.7.3-.2 0-1.5-.6-2.6-1.4a9 9 0 0 1-2.1-2.2c-.2-.3 0-.6.2-.8l.6-.8c.2-.3.2-.6 0-.9l-1.2-2c-.1-.3-.3-.5-.7-.5z" fill="currentColor"/></svg>
-            <span class="labels">
-              <span class="name">WhatsApp</span>
-              <span class="name-ur">&#x0648;&#x0627;&#x0679;&#x0633; &#x0627;&#x06CC;&#x067E;</span>
-            </span>
-          </span>
+        <!-- X (Twitter) -->
+        <a class="block" href="https://x.com/KP_smps" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+          <img class="block-icon" src="assets/x.svg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+          <span class="icon-fallback" aria-hidden="true">X</span>
+          <span class="sr-only">X (Twitter)</span>
         </a>
 
-        <!-- 6. Website -->
-        <a class="link" href="https://khairpublications.com/" target="_blank" rel="noopener noreferrer">
-          <span class="left">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2c1.7 0 3.2.5 4.5 1.4H7.5A8 8 0 0 1 12 4zm-8 8c0-.7.1-1.4.3-2h15.4c.2.6.3 1.3.3 2s-.1 1.4-.3 2H4.3c-.2-.6-.3-1.3-.3-2zm3.5 6h8.9A7.9 7.9 0 0 1 12 20c-1.7 0-3.2-.5-4.5-1.4zM16 7c.6.6 1.1 1.3 1.5 2H6.5c.4-.7.9-1.4 1.5-2H16z" fill="currentColor"/></svg>
-            <span class="labels">
-              <span class="name">Website</span>
-              <span class="name-ur">&#x0648;&#x06CC;&#x0628; &#x0633;&#x0627;&#x0626;&#x0679;</span>
-            </span>
-          </span>
+        <!-- WhatsApp -->
+        <a class="block" href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <img class="block-icon" src="assets/whatsapp.svg" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+          <span class="icon-fallback" aria-hidden="true">WA</span>
+          <span class="sr-only">WhatsApp</span>
         </a>
       </div>
 
-      <div class="footer"><span class="badge">Need help? Ask a team member.</span></div>
+      <!-- 5) Separator -->
+      <div class="separator" role="separator" aria-hidden="true"></div>
+
+      <!-- 6) Website tile (logo + name) -->
+      <a class="site-tile" href="https://khairpublications.com/" target="_blank" rel="noopener noreferrer">
+        <img class="site-logo" src="assets/logo.svg" alt="Khair Publications" />
+        <span class="site-name">Khair Publications</span>
+      </a>
+
+      <!-- Footer -->
+      <div class="footer">
+        <span>Need help? Ask a team member.</span>
+        <span class="ur">مدد چاہیے؟ ٹیم کے کسی رکن سے پوچھیں۔</span>
+      </div>
     </div>
   </div>
 </body>
