@@ -90,7 +90,7 @@ def pdf_to_png(
     output_paths = []
     for i, image in enumerate(images):
         page_num = start_page + i
-        output_filename = f"{prefix}_page_{page_num:04d}.png"
+        output_filename = f"page_{page_num:04d}.png"
         output_path = output_dir / output_filename
         
         image.save(str(output_path), "PNG")
