@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Mohamzaazam <mohamzaazam@gmail.com>"]
+channels = ["conda-forge"]
+name = "kp_smps"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.12.*"
+pdf2image = ">=1.17.0,<2"

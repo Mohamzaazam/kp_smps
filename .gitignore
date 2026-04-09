@@ -1,2 +1,7 @@
 *.svg
 *.png
+*.pdf
+
+# pixi environments
+.pixi/*
+!.pixi/config.toml
